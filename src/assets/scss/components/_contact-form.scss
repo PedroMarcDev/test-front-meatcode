@@ -1,0 +1,162 @@
+.contactform__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 75px;
+    margin-top: 6rem;
+
+    .contactform__title {
+        font-family: "Caveat", cursive;
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 38px;
+        color: #3F454A;
+    }
+
+    .contactform__content {
+        margin: 0 auto;
+
+        .contactform__inputs-container {
+            display: grid;
+            grid-template-columns: repeat(2, 351px);
+            justify-content: center;
+            column-gap: 20.77px;
+            row-gap: 9.86px;
+
+            label {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 370px;
+                height: 37px;
+                color: #24272A;
+                font-family: "Open Sans", sans-serif;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
+                text-transform: uppercase;
+            }
+    
+            .contactform__input {
+                display: block;
+                width: 351px;
+                margin-top: 0.5rem;
+                padding: 12px 22px 11px;
+                border-width: 1px;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 400;
+                font-family: "Open Sans", sans-serif;
+                background-color: #ffffff;
+                border-color: #CFCFCF;
+                color: #3F4544;
+                border: 1px solid #cfcfcf;
+    
+                &:disabled {
+                    border: 1px solid #CFCFCF;
+                    background: #FFF;
+                }
+                
+                &:focus {
+                    outline: 2px solid transparent;
+                    outline-offset: 2px;
+                    border-color: #D8AD3D;
+                }
+    
+    
+            }
+    
+            .error {
+                color: #B72C2C;
+                font-family: "Open Sans", sans-serif;
+            }
+            
+            .error__input {
+                border-color: #B72C2C;
+            
+            }
+        }
+
+        .contactform__submit {
+            display: block;
+            padding: 1rem 3rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 64px;
+            font-family: "Open Sans", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 24px;
+            color: #ffffff;
+            text-transform: uppercase;
+            border-radius: 50px;
+            background-color: #D8AD3D;
+            border: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: #009CD9;
+            }
+            
+            &:disabled {
+                background-color: #CFCFCF;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    @media (width <= 767px) {
+        gap: 55px;
+        margin-top: 4rem;
+
+        .contactform__title {
+            font-size: 50px;
+            line-height: 24px;
+        }
+
+        .contactform__content {
+            width: 100%;
+            margin: 0;
+
+            .contactform__inputs-container {
+                grid-template-columns: repeat(1, 100%);
+                column-gap: 0;
+                row-gap: 40px;
+
+                label {
+                    width: 100%;
+                    height: 40px;
+                }
+        
+                .contactform__input {
+                    display: block;
+                    width: 100%;
+                    margin-top: 0.5rem;
+                    padding: 12px 22px 11px;
+        
+                }
+            }
+
+            .contactform__submit {
+                display: block;
+                padding: 1rem 3rem;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 64px;
+                font-family: "Open Sans", sans-serif;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 24px;
+                color: #ffffff;
+                text-transform: uppercase;
+                border-radius: 50px;
+                background-color: #D8AD3D;
+                border: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+        }
+    }
+}
