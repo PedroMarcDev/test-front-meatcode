@@ -42,15 +42,19 @@
         height: 100%;
         
         .hero__title-container {
-            top: 30%;
-            left: 38%;
-            width: 50%;
+            top: 45%;
+            left: 30%;
+            width: 40%;
             
             .hero__title {
-                font-size: 60px;
-                line-height: 65px;
+                font-size: 30px;
+                line-height: 28px;
             }
         
+        }
+
+        .hero__separator {
+            height: 60px;
         }
     }
 
