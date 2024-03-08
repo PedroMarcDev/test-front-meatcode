@@ -1,9 +1,11 @@
 <script>
 import Hero from './components/Hero.vue';
+import Articles from './components/Articles.vue'
 
 export default {
   components: {
-    Hero
+    Hero,
+    Articles
   },
   props: {
     campaign: {
@@ -30,5 +32,23 @@ export default {
 
 
 <template>
+  <Html lang="es">
+
+  <Head>
+    <Title>El secreto de tu cocina</Title>
+    <Meta name="description" content="El secreto de tu cocina" />
+  </Head>
+
+
   <Hero />
+  <main class="articles__container">
+    <section>
+      <div class="articles__content">
+        <Articles />
+      </div>
+    </section>
+  </main>
+
+  </Html>
+
 </template>
