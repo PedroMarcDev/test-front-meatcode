@@ -21,9 +21,7 @@
             
         },
         methods: {
-           test() {
-            
-           },
+           
         }
     }
 </script>
