@@ -4,6 +4,9 @@ import axios from 'axios'
 import Article from './Article.vue'
 
 export default {
+        components: {
+            Article
+        },
         data() {
             return {
                 articles: [],
@@ -13,19 +16,22 @@ export default {
                 isLoading: false,
             }
         },
-        watch: {
-            
-        },
         mounted() {
             this.fetchingFilter()
         },
         methods: {
 
+            handleFilter(filter) {
+                this.isActiveFilter = filter
+                this.fetchingFilter()
+            },
+
             fetchingFilter() {
-                axios.get('https://5eed24da4cbc340016330f0d.mockapi.io', {
-                    // params: {
-                    //     filter: this.isActiveFilter === "todos" ? "" : this.isActiveFilter,
-                    // },
+                this.isLoading = true
+                axios.get('https://5eed24da4cbc340016330f0d.mockapi.io/api/articles', {
+                    params: {
+                        filter: this.isActiveFilter === "todos" ? "" : this.isActiveFilter,
+                    },
                 })
 
                 .then(response => {
@@ -52,86 +58,15 @@ export default {
         }" @click="() => handleFilter(filter)">
             {{ filter }}
 
-            <img src="../assets/img/arrow.svg" alt="Arrow icon">
+            <img src="../assets/img/arrow.svg" alt="Arrow icon" v-if="isActiveFilter === filter">
         </button>
     </div>
 
-    <div class="articles__list">
-        <div class="article__container">
-            <div class="article__image">
-                <img src="../assets/img/hero_BG.png" alt="Article image">
-            </div>
-            <div class="article__content">
-                <span class="article__title">
-                    Curabitur vulputate placerat tristique nam libero eros
-                </span>
-                <p class="article__description">
-                    Malesuada tortor, facilisi vel turpis ullamcorper. Mattis egestas mattis nulla pretium. Arcu pretium, tempor,
-                </p>
+    <div v-if="isLoading" class="loader__container">
+        <span class="loader"></span>
+    </div>
 
-                <a href="#" class="article__button">ver más</a>
-            </div>
-        </div>
-        <div class="article__container">
-            <div class="article__image">
-                <img src="../assets/img/hero_BG.png" alt="Article image">
-            </div>
-            <div class="article__content">
-                <span class="article__title">
-                    Curabitur vulputate placerat tristique nam libero eros
-                </span>
-                <p class="article__description">
-                    Malesuada tortor, facilisi vel turpis ullamcorper. Mattis egestas mattis nulla pretium. Arcu pretium, tempor,
-                </p>
-
-                <a href="#" class="article__button">ver más</a>
-            </div>
-        </div>
-        <div class="article__container">
-            <div class="article__image">
-                <img src="../assets/img/hero_BG.png" alt="Article image">
-            </div>
-            <div class="article__content">
-                <span class="article__title">
-                    Curabitur vulputate placerat tristique nam libero eros
-                </span>
-                <p class="article__description">
-                    Malesuada tortor, facilisi vel turpis ullamcorper. Mattis egestas mattis nulla pretium. Arcu pretium, tempor,
-                </p>
-
-                <a href="#" class="article__button">ver más</a>
-            </div>
-        </div>
-        <div class="article__container">
-            <div class="article__image">
-                <img src="../assets/img/hero_BG.png" alt="Article image">
-            </div>
-            <div class="article__content">
-                <span class="article__title">
-                    Curabitur vulputate placerat tristique nam libero eros
-                </span>
-                <p class="article__description">
-                    Malesuada tortor, facilisi vel turpis ullamcorper. Mattis egestas mattis nulla pretium. Arcu pretium, tempor,
-                </p>
-
-                <a href="#" class="article__button">ver más</a>
-            </div>
-        </div>
-        <div class="article__container">
-            <div class="article__image">
-                <img src="../assets/img/hero_BG.png" alt="Article image">
-            </div>
-            <div class="article__content">
-                <span class="article__title">
-                    Curabitur vulputate placerat tristique nam libero eros
-                </span>
-                <p class="article__description">
-                    Malesuada tortor, facilisi vel turpis ullamcorper. Mattis egestas mattis nulla pretium. Arcu pretium, tempor,
-                </p>
-
-                <a href="#" class="article__button">ver más</a>
-            </div>
-        </div>
-        <!-- <Article v-for="article in articles.slice(0, 9)" :article="article" /> -->
+    <div v-else class="articles__list">
+        <Article v-for="article in articles.slice(0, 9)" :article="article" />
     </div>
 </template>

@@ -1,11 +1,13 @@
 <script>
 import Hero from './components/Hero.vue';
 import Articles from './components/Articles.vue'
+import ContactForm from "./components/ContactForm.vue";
 
 export default {
   components: {
     Hero,
-    Articles
+    Articles,
+    ContactForm
   },
   props: {
     campaign: {
@@ -32,13 +34,6 @@ export default {
 
 
 <template>
-  <Html lang="es">
-
-  <Head>
-    <Title>El secreto de tu cocina</Title>
-    <Meta name="description" content="El secreto de tu cocina" />
-  </Head>
-
 
   <Hero />
   <main class="articles__container">
@@ -47,8 +42,9 @@ export default {
         <Articles />
       </div>
     </section>
+    <section class="contactform__container">
+      <ContactForm />
+    </section>
   </main>
-
-  </Html>
 
 </template>
