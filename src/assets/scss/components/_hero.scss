@@ -1,0 +1,70 @@
+.hero {
+    position: relative;
+    height: 741px;
+
+    .hero__background {
+        width: 100%;
+        height: 100%;
+
+        .hero__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .hero__title-container {
+        position: absolute;
+        top: 42%;
+        left: 25%;
+        width: 32%;
+        transform: translate(-50%, -50%);
+        
+        .hero__title {
+            font-family: "Caveat", cursive;
+            font-size: 120px;
+            font-weight: 700;
+            color: #3F454A;
+            line-height: 100px;
+        }
+    
+    }
+
+    .hero__separator {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 228px;
+        background: linear-gradient(0deg, #FFFFFF 0%, #FFFFFF 32.22%, rgba(255, 255, 255, 0.71) 61.99%, rgba(255, 255, 255, 0.0729167) 93.72%, rgba(255, 255, 255, 0) 93.72%);
+    }
+
+    @media (width <= 767px) {
+        height: 100%;
+        
+        .hero__title-container {
+            top: 30%;
+            left: 38%;
+            width: 50%;
+            
+            .hero__title {
+                font-size: 60px;
+                line-height: 65px;
+            }
+        
+        }
+    }
+
+    @media (768px <= width <= 1024px) {
+        .hero__title-container {
+            top: 40%;
+            left: 30%;
+            width: 50%;
+            
+            .hero__title {
+                font-size: 90px;
+                line-height: 80px;
+            }
+        
+        }
+    }
+}
