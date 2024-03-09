@@ -41,7 +41,7 @@
             .contactform__input {
                 display: block;
                 width: 351px;
-                margin-top: 0.5rem;
+                margin: 0.5rem 0;
                 padding: 12px 22px 11px;
                 border-width: 1px;
                 font-size: 14px;
@@ -67,7 +67,7 @@
     
             }
     
-            .error {
+            .contactform__error {
                 color: #B72C2C;
                 font-family: "Open Sans", sans-serif;
             }
